@@ -226,7 +226,7 @@ If No herb or plant is visible in the image then just return the response as No 
                       <p key={index}>{line}</p>
                     ))} */}
 
-                    <TextGenerateEffect duration={0.35} words={resultModify} />
+                    <TextGenerateEffect duration={0.2} words={resultModify} />
                 </div>
               )}
             </div>
