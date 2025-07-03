@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer"; 
+import { useNavigate } from "react-router-dom";
+
+import exclaim from "../assets/exclaim.svg"; 
 import {
   Home,
   Sprout,
@@ -30,6 +33,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [newsdata, setNewsdata] = useState(null);
   const [newsLoading, setNewsLoading] = useState(false);
+   const navigate = useNavigate();
 
   // Fetch user data
   useEffect(() => {
@@ -109,6 +113,24 @@ export default function Dashboard() {
       </div>
     );
 
+     if(sessionStorage.getItem("token") === null) {
+    
+        return (
+        <>
+        <div className="flex flex-col items-center justify-center py-24">
+                <img src={exclaim} alt="Exclaim" className="w-24 h-24 mb-4" />
+                <p className="text-gray-400 text-lg mb-6">You haven't logged in.</p>
+                <p className="text-gray-400 text-lg mb-6">Please login and comeback.</p>
+                <button
+                  onClick={() => navigate("/")}
+                  className="px-6 py-3 rounded-xl bg-green-600 cursor-pointer text-white font-semibold hover:bg-green-700 transition text-lg shadow"
+                >
+                  Go to Home
+                </button>
+              </div>
+        </>
+        )
+      }
   return (
     <div className="min-h-screen bg-[#f6f8ed] flex flex-col">
       {/* Top Bar */}
@@ -184,7 +206,7 @@ export default function Dashboard() {
         {/* Right: Logout */}
         <div className="flex justify-end min-w-[100px]">
           <button
-            className="flex items-center gap-1 bg-[#b7d7b0] hover:bg-[#a3cfa0] text-[#3b5d3b] px-4 py-1.5 rounded font-semibold text-xs sm:text-sm transition"
+            className="flex items-center gap-1 bg-[#b7d7b0] hover:bg-[#a3cfa0] text-[#3b5d3b] cursor-pointer px-4 py-1.5 rounded font-semibold text-xs sm:text-sm transition"
             onClick={handleLogout}
           >
             <LogOut size={18} />

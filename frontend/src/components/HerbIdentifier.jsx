@@ -116,7 +116,7 @@ If No herb or plant is visible in the image then just return the response as No 
     <>
       
       <div className="bg-[#f6f8ed] border border-[#d2e3c8] shadow rounded-3xl p-4 min-h-screen w-[96vw] mx-auto flex flex-col items-center justify-center">
-        <div className="w-full max-w-6xl mx-auto  rounded-2xl p-8 ">
+        <div className="w-full max-w-7xl mx-auto  rounded-2xl p-8 ">
           {/* Header */}
           <h1 className="text-5xl md:text-7xl font-extrabold text-[#3b5d3b] mb-2 text-center">
             BotanIQ
@@ -133,7 +133,7 @@ If No herb or plant is visible in the image then just return the response as No 
                 alt=""
                 className="w-16 md:w-20 sm:w-14"
               />
-              <p className="font-bold text-3xl md:text-4xl text-[#7ca982] mb-6">
+              <p className="font-bold text-center text-3xl md:text-4xl text-[#7ca982] mb-6">
                 "Let's Identify Your Herb"
               </p>
               <div className="flex flex-col rounded-lg bg-[#e6f4ea] p-6 shadow-md w-full">
@@ -167,7 +167,7 @@ If No herb or plant is visible in the image then just return the response as No 
                     type="file"
                     accept="image/*"
                     onChange={handleImageChange}
-                    className="block text-sm text-[#3b5d3b] file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#e6f4ea] file:text-[#7ca982] hover:file:bg-[#b7d7b0] mb-2"
+                    className="block text-sm cursor-pointer text-[#3b5d3b] file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#e6f4ea] file:text-[#7ca982] hover:file:bg-[#b7d7b0] mb-2"
                   />
                   {!previewImage && (
                     <div className="mb-2 rounded-xl w-64 h-72 border-2 border-[#d2e3c8] text-center pt-[10%] text-[#8a958a] bg-[#f6f8ed]">
@@ -189,7 +189,7 @@ If No herb or plant is visible in the image then just return the response as No 
                   <button
                     onClick={handleSubmit}
                     disabled={loading || !selectedImage}
-                    className="bg-[#7ca982] hover:bg-[#3b5d3b] text-white font-semibold py-2 px-6 rounded-lg mb-2 transition"
+                    className="bg-[#7ca982] hover:bg-[#3b5d3b] text-white font-semibold py-2 px-6 rounded-lg mb-2 transition cursor-pointer"
                   >
                     {loading ? "Identifying..." : "Identify Herb"}
                   </button>

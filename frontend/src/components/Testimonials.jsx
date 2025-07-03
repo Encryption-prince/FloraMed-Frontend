@@ -87,7 +87,7 @@ export default function Testimonials() {
               {/* Left Button */}
               <button
                 onClick={handlePrev}
-                className="z-10 bg-green-100 hover:bg-green-200 p-3 rounded-full shadow-md disabled:opacity-50 mr-2 self-center"
+                className="z-10 cursor-pointer bg-green-100 hover:bg-green-200 p-3 rounded-full shadow-md disabled:opacity-50 mr-2 self-center"
                 aria-label="Previous testimonials"
                 style={{
                   position: "absolute",
@@ -136,7 +136,7 @@ export default function Testimonials() {
               {/* Right Button */}
               <button
                 onClick={handleNext}
-                className="z-10 bg-green-100 hover:bg-green-200 p-3 rounded-full shadow-md disabled:opacity-50 ml-2 self-center"
+                className="z-10 cursor-pointer bg-green-100 hover:bg-green-200 p-3 rounded-full shadow-md disabled:opacity-50 ml-2 self-center"
                 aria-label="Next testimonials"
                 style={{
                   position: "absolute",

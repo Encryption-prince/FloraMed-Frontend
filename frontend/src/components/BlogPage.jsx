@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import exclaim from "../assets/exclaim.svg";
+import { useNavigate } from "react-router-dom";
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -118,6 +120,28 @@ const BlogPage = () => {
     setActiveCommentBox(null);
   };
 
+  const navigate = useNavigate();
+  
+
+  if(sessionStorage.getItem("token") === null) {
+    
+        return (
+        <>
+        <div className="flex flex-col items-center justify-center py-24">
+                <img src={exclaim} alt="Exclaim" className="w-24 h-24 mb-4" />
+                <p className="text-gray-400 text-lg mb-6">You haven't logged in.</p>
+                <p className="text-gray-400 text-lg mb-6">Please login and comeback.</p>
+                <button
+                  onClick={() => navigate("/")}
+                  className="px-6 py-3 rounded-xl bg-green-600 cursor-pointer text-white font-semibold hover:bg-green-700 transition text-lg shadow"
+                >
+                  Go to Home
+                </button>
+              </div>
+        </>
+        )
+      }
+
   return (
     <div className="bg-[#f6f8ed] min-h-screen">
       <Navbar />
@@ -172,7 +196,7 @@ const BlogPage = () => {
             ></textarea>
             <button
               type="submit"
-              className="bg-[#7ca982] text-white px-6 py-2 rounded-lg shadow hover:bg-[#3b5d3b] transition"
+              className="bg-[#7ca982] text-white cursor-pointer px-6 py-2 rounded-lg shadow hover:bg-[#3b5d3b] transition"
             >
               Post
             </button>

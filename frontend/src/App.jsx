@@ -111,12 +111,12 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard/gardening-tips" element={<Gardening />} />
+          <Route path="/gardening-tips" element={<Gardening />} />
           <Route path="/oauth/callback" element={<AuthCallback />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/add-plants" element={<AddPlant />} />
           <Route path="/my-plants" element={<HerbalistsMyPlants />} />
-          <Route path="/orders" element={<Orders />} />
+          {/* <Route path="/orders" element={<Orders />} /> */}
           <Route path="/payment-success" element={<Success />} />
           <Route
             path="/cart"

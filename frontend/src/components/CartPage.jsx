@@ -215,7 +215,7 @@ console.log("Product IDs for order:", productIds);
             <p className="text-gray-400 text-lg mb-6">Your cart is empty.</p>
             <button
               onClick={() => navigate("/marketplace")}
-              className="px-6 py-3 rounded-xl bg-green-600 text-white font-semibold hover:bg-green-700 transition text-lg shadow"
+              className="px-6 py-3 rounded-xl bg-green-600 cursor-pointer text-white font-semibold hover:bg-green-700 transition text-lg shadow"
             >
               Continue Shopping
             </button>
@@ -252,7 +252,7 @@ console.log("Product IDs for order:", productIds);
                     <div className="flex items-center gap-2 mt-4 sm:mt-0">
                       <button
                         onClick={() => handleRemove(index)}
-                        className="px-3 py-1 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition text-lg"
+                        className="px-3 py-1 rounded cursor-pointer bg-gray-100 text-gray-500 hover:bg-gray-200 transition text-lg"
                       >
                         -
                       </button>
@@ -261,13 +261,13 @@ console.log("Product IDs for order:", productIds);
                       </span>
                       <button
                         onClick={() => handleAdd(index)}
-                        className="px-3 py-1 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition text-lg"
+                        className="px-3 py-1 rounded cursor-pointer bg-gray-100 text-gray-500 hover:bg-gray-200 transition text-lg"
                       >
                         +
                       </button>
                       <button
                         onClick={() => handleDelete(index)}
-                        className="ml-4 px-3 py-1 rounded bg-red-50 text-red-500 hover:bg-red-100 transition text-sm"
+                        className="ml-4 px-3 py-1 rounded cursor-pointer bg-red-50 text-red-500 hover:bg-red-100 transition text-sm"
                       >
                         Remove
                       </button>
@@ -277,7 +277,7 @@ console.log("Product IDs for order:", productIds);
               </div>
               <button
                 onClick={handleClearCart}
-                className="mt-8 w-full py-3 rounded-xl bg-gray-50 text-gray-500 font-semibold hover:bg-gray-100 transition"
+                className="mt-8 w-full py-3 rounded-xl bg-gray-50 cursor-pointer text-gray-500 font-semibold hover:bg-gray-100 transition"
               >
                 Clear Cart
               </button>
@@ -310,9 +310,9 @@ console.log("Product IDs for order:", productIds);
               </div>
               <button
                 onClick={handleCheckout}
-                className="mt-8 w-full py-3 rounded-xl bg-green-600 text-white font-semibold hover:bg-green-700 transition text-lg shadow"
+                className="mt-8 w-full cursor-pointer py-3 rounded-xl bg-green-600 text-white font-semibold hover:bg-green-700 transition text-lg shadow"
               >
-                Proceed to Checkout
+                Proceed to Payment
               </button>
             </div>
           </div>

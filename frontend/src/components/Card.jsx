@@ -84,7 +84,7 @@ function Card({ id, image, title, type, onBuyNow, isInitiallyBookmarked }) {
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-lg font-semibold text-[#3b5d3b]">{title}</h3>
           <button
-            className="p-1 rounded-full hover:bg-[#e6f4ea] transition"
+            className="p-1 rounded-full hover:bg-[#e6f4ea] transition cursor-pointer"
             onClick={handleSave}
             aria-label={isSaved ? "Remove Bookmark" : "Add Bookmark"}
           >

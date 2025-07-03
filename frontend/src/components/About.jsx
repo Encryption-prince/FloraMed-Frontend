@@ -31,6 +31,10 @@ import Navbar from "./Navbar";
 import { motion } from "framer-motion";
 import Footer from "./Footer";
 
+
+
+import Subha from "../assets/team/subha.jpeg";
+
 const teamMembers = [
   {
     name: "Areesh Zafar",
@@ -69,8 +73,13 @@ const teamMembers = [
     name: "Subha Deep Mishra",
     role: "Frontend & API Manager",
     tech: [
+            <FaHtml5 title="HTML5" className="text-orange-500" />,
+                  <FaCss3Alt title="CSS3" className="text-blue-600" />,
+      <SiTailwindcss title="Tailwind CSS" className="text-sky-400" />,
+      <SiJavascript title="JavaScript" className="text-yellow-400" />,
+
       <FaReact title="React" className="text-sky-500" />,
-      <FaCss3Alt title="CSS3" className="text-blue-600" />,
+
       <SiPostman title="Postman" className="text-orange-500" />,
       <FaNodeJs title="Node.js" className="text-green-600" />,
       <FaGithub title="GitHub" className="text-black" />,
@@ -117,26 +126,39 @@ export default function About() {
             >
               {/* Main static image */}
               <div className="relative mb-4">
-                <img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
-                  alt="Profile"
-                  className="w-20 h-20 rounded-full object-cover border-4 border-green-200 shadow"
-                  draggable={false}
-                />
+                <motion.div
+    className="relative w-20 h-20"
+    initial="rest"
+    whileHover="hover"
+    animate="rest"
+  >
+    {/* Original Image - disappears on hover */}
+    <motion.img
+      src={Subha}
+      alt="Profile"
+      className="w-full h-full rounded-full object-cover border-4 border-green-200 shadow absolute top-0 left-0 z-10"
+      draggable={false}
+      variants={{
+        rest: { opacity: 1, scale: 1 },
+        hover: { opacity: 0, scale: 0.8 },
+      }}
+      transition={{ duration: 0.3 }}
+    />
                 {/* Floating/enlarged image on hover */}
                 <motion.img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+                  src={Subha}
                   alt="Profile Floating"
                   className="w-20 h-20 rounded-full object-cover border-4 border-green-400 shadow-lg absolute left-1/2 -translate-x-1/2 z-20"
                   style={{ top: 0 }}
                   initial={{ opacity: 0, y: 0, scale: 1 }}
                   variants={{
                     rest: { opacity: 0, y: 0, scale: 1 },
-                    hover: { opacity: 1, y: -70, scale: 1.5 },
+                    hover: { opacity: 1, y: -50, scale: 1.5 },
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   draggable={false}
                 />
+                </motion.div>
               </div>
               <h2 className="text-2xl font-bold text-gray-800">
                 {member.name}
