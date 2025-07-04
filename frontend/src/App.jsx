@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import dynamicRoutes from "./components/dynamicRoutes";
 import { motion } from "framer-motion";
 import Loader from "./components/Loader"; // Import the loader
 import Navbar from "./components/Navbar";
@@ -31,6 +31,7 @@ import AdminDash from "./components/AdminDash";
 import RemovePlants from "./components/RemovePlants";
 import AddProducts from "./components/AddProducts";
 import RemoveProducts from "./components/RemoveProducts"; 
+
 function App() {
   
   
@@ -120,6 +121,7 @@ function App() {
           <Route path="/gardening-tips" element={<Gardening />} />
           <Route path="/oauth/callback" element={<AuthCallback />} />
           <Route path="/blog" element={<BlogPage />} />
+          
           <Route path="/add-plants" element={<AddPlant />} />
           <Route path="/my-plants" element={<HerbalistsMyPlants />} />
           {/* <Route path="/orders" element={<Orders />} /> */}
@@ -138,6 +140,10 @@ function App() {
             element={<HealthWellness />
             }
           />
+          {dynamicRoutes.map(({ path, component }, index) => (
+  <Route key={index} path={path} element={component} />
+))}
+
         </Routes>
       </div>
     </Router>

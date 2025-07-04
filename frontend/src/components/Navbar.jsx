@@ -3,6 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "../assets/logo/logoo.svg";
 import useScrollDirection from "../hooks/useScrollDirection";
+import dynamicRoutes from "./dynamicRoutes"; // 
+
+const herbalTreatmentLink = dynamicRoutes.find(
+  (route) => route.name === "Herbal Treatment"
+);
+
+
 
 const links = [
   { name: "Marketplace", path: "/marketplace" },
@@ -84,7 +91,8 @@ const Navbar = ({ className = "" }) => {
               style={{ transformOrigin: "center" }}
             ></span>
           </Link>
-          {links.map(({ name, path }) => (
+          {[...links, ...(herbalTreatmentLink ? [herbalTreatmentLink] : [])].map(({ name, path }) => (
+
             <Link
               key={name}
               to={path}
@@ -127,7 +135,8 @@ const Navbar = ({ className = "" }) => {
           >
             Home
           </Link>
-          {links.map(({ name, path }) => (
+          {[...links, ...(herbalTreatmentLink ? [herbalTreatmentLink] : [])].map(({ name, path }) => (
+
             <Link
               key={name}
               to={path}
