@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/logo/FlorMed Logo.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./src/assets/logo/FlorMed Logo.svg"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -22,7 +26,7 @@
     <!-- Chatbase Chatbot -->
     <script>
       window.chatbaseConfig = {
-        chatbotId: "TBGUdBliFGdTZuYGrCSd-",
+        chatbotId: "uxfFV_NAew1c2ZQRKognG",
         domain: "https://www.chatbase.co",
         openChatByDefault: true,
         // 👇 Customizations
@@ -31,7 +35,38 @@
       };
     </script>
     <script src="https://www.chatbase.co/embed.min.js" defer></script>
+    <!-- <script>
+      (function () {
+        if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+          window.chatbase = (...arguments) => {
+            if (!window.chatbase.q) {
+              window.chatbase.q = [];
+            }
+            window.chatbase.q.push(arguments);
+          };
+          window.chatbase = new Proxy(window.chatbase, {
+            get(target, prop) {
+              if (prop === "q") {
+                return target.q;
+              }
+              return (...args) => target(prop, ...args);
+            },
+          });
+        }
+        const onLoad = function () {
+          const script = document.createElement("script");
+          script.src = "https://www.chatbase.co/embed.min.js";
+          script.id = "uxfFV_NAew1c2ZQRKognG";
+          script.domain = "www.chatbase.co";
+          document.body.appendChild(script);
+        };
+        if (document.readyState === "complete") {
+          onLoad();
+        } else {
+          window.addEventListener("load", onLoad);
+        }
+      })();
+    </script> -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
   </body>
 </html>
