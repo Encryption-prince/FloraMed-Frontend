@@ -10,7 +10,7 @@ import {
 } from "react-icons/si";
 import { FaIcons } from "react-icons/fa";
 
-const Footer = () => {
+const Footer = ({ className = "" }) => {
   const year = new Date().getFullYear();
   const [formData, setFormData] = useState({
     name: "",
@@ -66,7 +66,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#f6f8ed] text-[#3b5d3b] px-4 py-8 border-t border-[#d2e3c8]">
+    <footer className={`bg-[#f6f8ed] text-[#3b5d3b] px-4 py-8 border-t border-[#d2e3c8] ${className}`}>
       <div className="max-w-7xl mx-auto grid gap-10 md:grid-cols-2 lg:grid-cols-4 items-start">
         {/* Logo */}
         <div className="flex flex-col items-start gap-4">

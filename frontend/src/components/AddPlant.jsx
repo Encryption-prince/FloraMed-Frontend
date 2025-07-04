@@ -56,10 +56,10 @@ const AddPlant = () => {
 
   return (
     <>
-    <Navbar className='text-white bg-gradient-to-l from-green-800 to-green-500'/>
-    <div className="w-[100%] mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <Navbar className='w-[96vw] ]'/>
+    <div className="w-[96vw] mx-auto mt-[12vh] p-6 bg-[#f6f8ed] rounded-lg shadow-md">
       <ToastContainer />
-      <h2 className="text-4xl font-bold mb-6 text-center">Add a New Plant 🌱</h2>
+      <h2 className="text-4xl font-bold mb-6 text-center text-[#3b5d3b]">Add a New Plant 🌱</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="grid gap-2 w-[100%]">
         {[
           { label: 'Name', name: 'plantName', required: true },
@@ -97,12 +97,12 @@ const AddPlant = () => {
           </div>
         ))}
 
-        <button type="submit" className="mt-4 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700">
+        <button type="submit" className="w-full bg-[#b7d7b0] hover:bg-[#a3cfa0] text-[#3b5d3b] font-bold py-2 rounded transition">
           Add Plant
         </button>
       </form>
     </div>
-    <Footer/>
+    <Footer className="w-[96vw] mx-auto rounded-t-xl mt-[5vh]"  />
     </>
   );
 };

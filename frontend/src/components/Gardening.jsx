@@ -79,7 +79,7 @@ const scaleUp = {
 };
 
 const Gardening = () => {
-  const [active, setActive] = useState(null);
+      const [active, setActive] = useState(null);
       const navigate = useNavigate();
   
 

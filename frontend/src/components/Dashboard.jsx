@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Footer from "./Footer"; 
+import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 
-import exclaim from "../assets/exclaim.svg"; 
+import exclaim from "../assets/exclaim.svg";
 import {
   Home,
   Sprout,
@@ -20,7 +20,7 @@ const dashboardTiles = [
   {
     label: "Gardening Tips",
     icon: <Leaf size={32} />,
-    to: "/dashboard/gardening-tips",
+    to: "/gardening-tips",
   },
   { label: "Health Tips", icon: <MessageCircle size={32} />, to: "/health" },
   { label: "Add Plants", icon: <Sprout size={32} />, to: "/add-plants" },
@@ -33,7 +33,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [newsdata, setNewsdata] = useState(null);
   const [newsLoading, setNewsLoading] = useState(false);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // Fetch user data
   useEffect(() => {
@@ -61,8 +61,7 @@ export default function Dashboard() {
         setUser(data.name);
         setUserData(data);
         setLoading(false);
-        // console.log("User data fetched successfully:", data);
-        
+        console.log("User data fetched successfully:", data);
       } catch (error) {
         setUser("User");
       }
@@ -113,24 +112,25 @@ export default function Dashboard() {
       </div>
     );
 
-     if(sessionStorage.getItem("token") === null) {
-    
-        return (
-        <>
+  if (sessionStorage.getItem("token") === null) {
+    return (
+      <>
         <div className="flex flex-col items-center justify-center py-24">
-                <img src={exclaim} alt="Exclaim" className="w-24 h-24 mb-4" />
-                <p className="text-gray-400 text-lg mb-6">You haven't logged in.</p>
-                <p className="text-gray-400 text-lg mb-6">Please login and comeback.</p>
-                <button
-                  onClick={() => navigate("/")}
-                  className="px-6 py-3 rounded-xl bg-green-600 cursor-pointer text-white font-semibold hover:bg-green-700 transition text-lg shadow"
-                >
-                  Go to Home
-                </button>
-              </div>
-        </>
-        )
-      }
+          <img src={exclaim} alt="Exclaim" className="w-24 h-24 mb-4" />
+          <p className="text-gray-400 text-lg mb-6">You haven't logged in.</p>
+          <p className="text-gray-400 text-lg mb-6">
+            Please login and comeback.
+          </p>
+          <button
+            onClick={() => navigate("/")}
+            className="px-6 py-3 rounded-xl bg-green-600 cursor-pointer text-white font-semibold hover:bg-green-700 transition text-lg shadow"
+          >
+            Go to Home
+          </button>
+        </div>
+      </>
+    );
+  }
   return (
     <div className="min-h-screen bg-[#f6f8ed] flex flex-col">
       {/* Top Bar */}
@@ -325,7 +325,7 @@ export default function Dashboard() {
           }
         }
       `}</style>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

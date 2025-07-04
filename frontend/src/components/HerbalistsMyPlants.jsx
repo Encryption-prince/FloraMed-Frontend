@@ -46,8 +46,8 @@ const HerbalistsMyPlants = () => {
 
   return (
     <>
-      <Navbar className='text-green-900  bg-gradient-to-r from-green-300 to-green-600'/>
-      <div className="min-h-screen">
+      <Navbar className='w-[96vw]'/>
+      <div className="min-h-screen mt-[12vh] bg-[#f6f8ed] w-[96vw] mx-auto rounded-xl shadow-md mb-[5vh]">
       <h2 className="text-3xl font-bold text-center text-green-800 mb-10 mt-10">
         Your Added Plants 🌱
       </h2>
@@ -134,8 +134,8 @@ const HerbalistsMyPlants = () => {
         )}
       </Modal>
       </div>
-
-      <Footer />
+        <Footer className="w-[96vw] mx-auto rounded-t-xl"  />
+      
     </>
   );
 };

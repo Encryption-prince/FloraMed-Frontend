@@ -27,7 +27,11 @@ import Testimonials from "./components/Testimonials";
 import MarketPlace from "./components/MarketPlace";
 import HerbIdentifier from "./components/HerbIdentifier";
 import Contact from "./components/Contact";
-import HerbalTreatment from "./components/HerbalTreatment";
+import AdminDash from "./components/AdminDash";
+import RemovePlants from "./components/RemovePlants";
+import AddProducts from "./components/AddProducts";
+import RemoveProducts from "./components/RemoveProducts"; 
+
 function App() {
   
   
@@ -101,7 +105,10 @@ function App() {
           />
 
           {/* Other Routes */}
-          
+          <Route path="/adminDash" element={<AdminDash />} />
+          <Route path="/remove-plants" element={<RemovePlants />} />
+          <Route path="/add-products" element={<AddProducts />} />
+          <Route path="/remove-products" element={<RemoveProducts />} />
           <Route
             path="/marketplace"
             element={
