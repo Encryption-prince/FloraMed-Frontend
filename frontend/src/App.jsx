@@ -31,6 +31,7 @@ import AdminDash from "./components/AdminDash";
 import RemovePlants from "./components/RemovePlants";
 import AddProducts from "./components/AddProducts";
 import RemoveProducts from "./components/RemoveProducts"; 
+import HerbalTreatment from "./components/HerbalTreatment";
 
 function App() {
   
