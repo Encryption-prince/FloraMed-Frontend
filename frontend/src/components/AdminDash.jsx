@@ -32,17 +32,22 @@ const adminTiles = [
     to: "/remove-products",
   },
 ];
-const metricsData = [
-  { name: "Users", value: 15000 },
-  { name: "Products", value: 50000 },
-  { name: "Orders", value: 44566 },
-  { name: "Revenue", value: 30709 },
-  { name: "Plants", value: 75869 },
-];
+// const metricsData = [
+//   { name: "Users", value: 15000 },
+//   { name: "Products", value: 50000 },
+//   { name: "Orders", value: 44566 },
+//   { name: "Revenue", value: 30709 },
+//   { name: "Plants", value: 75869 },
+// ];
+
+
+
+
 
 function AdminDash() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [metricsData, setMetricsData] = useState([]); 
   const navigate = useNavigate(); // <-- Add this line
 
   const [activeTab, setActiveTab] = useState("Metrics");
@@ -111,6 +116,41 @@ function AdminDash() {
     }
   };
 
+
+  const fetchMetrics = async () => {
+      const token = sessionStorage.getItem("token");
+      if (!token) {
+        return;
+      }
+      try {
+        const response = await fetch(
+          "https://quarrelsome-mae-subham-org-14444f5f.koyeb.app/admin/metrics/overview",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        if (!response.ok)
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        const data = await response.json();
+        const metrics = Object.entries(data)
+        .filter(([key]) => key !== "totalRevenue") // exclude totalRevenue
+        .map(([key, value]) => {
+        const name = key.replace("total", ""); // remove 'total'
+        const formattedName = name.charAt(0).toUpperCase() + name.slice(1); // capitalize
+        return { name: formattedName, value };
+        });
+setMetricsData(metrics);
+
+        console.log("Metrics Data:", data);
+      } catch (error) {
+        return;
+      }
+    };
+
   // Fetch user data (same as Dashboard.jsx)
   useEffect(() => {
     const fetchUserData = async () => {
@@ -142,6 +182,7 @@ function AdminDash() {
       }
     };
     fetchUserData();
+    fetchMetrics();
   }, []);
 
   // Logout function (same as Dashboard.jsx)
