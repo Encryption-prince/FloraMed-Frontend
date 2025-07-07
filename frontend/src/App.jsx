@@ -11,7 +11,7 @@ import About from "./components/About";
 import Gardening from "./components/Gardening";
 import Footer from "./components/Footer";
 import CardsSection from "./components/CardsSection";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/DashboardRouter";
 import Login from "./components/Login";
 import HealthWellness from "./components/HealthWellness";
 import CartPage from "./components/CartPage";
@@ -21,13 +21,11 @@ import AddPlant from "./components/AddPlant";
 import HerbalistsMyPlants from "./components/HerbalistsMyPlants";
 import Subscription from "./components/Subscription";
 import DoctorsPage from "./components/DoctorsPage";
-import Orders from "./components/Orders";
 import Success from "./components/Success";
 import Testimonials from "./components/Testimonials";
 import MarketPlace from "./components/MarketPlace";
 import HerbIdentifier from "./components/HerbIdentifier";
 import Contact from "./components/Contact";
-import AdminDash from "./components/AdminDash";
 import RemovePlants from "./components/RemovePlants";
 import AddProducts from "./components/AddProducts";
 import RemoveProducts from "./components/RemoveProducts"; 
@@ -106,7 +104,7 @@ function App() {
           />
 
           {/* Other Routes */}
-          <Route path="/adminDash" element={<AdminDash />} />
+          
           <Route path="/remove-plants" element={<RemovePlants />} />
           <Route path="/add-products" element={<AddProducts />} />
           <Route path="/remove-products" element={<RemoveProducts />} />
@@ -125,7 +123,6 @@ function App() {
           
           <Route path="/add-plants" element={<AddPlant />} />
           <Route path="/my-plants" element={<HerbalistsMyPlants />} />
-          {/* <Route path="/orders" element={<Orders />} /> */}
           <Route path="/payment-success" element={<Success />} />
           <Route
             path="/cart"

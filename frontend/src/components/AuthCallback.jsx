@@ -13,7 +13,7 @@ function AuthCallback() {
 
     if (token) {
       sessionStorage.setItem("token", token);
-      // console.log("Token:", token);
+      console.log("Token:", token);
       
       navigate("/dashboard");
     } else if (tempToken) {

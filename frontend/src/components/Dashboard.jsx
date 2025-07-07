@@ -61,7 +61,7 @@ export default function Dashboard() {
         setUser(data.name);
         setUserData(data);
         setLoading(false);
-        console.log("User data fetched successfully:", data);
+        // console.log("User data fetched successfully:", data);
       } catch (error) {
         setUser("User");
       }
