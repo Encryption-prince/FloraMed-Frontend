@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import {
   LogOut,
   Home,
@@ -169,6 +171,54 @@ function AdminDash() {
 
   return (
     <div className="bg-gradient-to-b from-white to-[#f6f8ed] min-h-screen p-4 space-y-6">
+
+
+      <header className="bg-[#e6f4ea] border border-[#d2e3c8] px-4 py-3 rounded-xl w-[97vw] mx-auto mt-[2vh]">
+        <div className="flex items-center justify-between w-full">
+          {/* Center: Floramed */}
+          <span className=" text-2xl sm:text-2xl font-bold text-[#3b5d3b] tracking-tight select-none">
+            Floramed
+          </span>
+          {/* Right: Marketplace & Blog */}
+          <div className="flex items-center gap-2 ml-auto">
+            <Link
+              to="/marketplace"
+              className="flex items-center gap-1 text-[#3b5d3b] px-4 py-1.5 font-semibold text-xs sm:text-sm transition relative group"
+            >
+              Marketplace
+              <span
+                className="absolute left-1/2 -translate-x-1/2 -bottom-0.5 w-0 h-[2px] bg-[#3b5d3b] transition-all duration-300 group-hover:w-[70%]"
+                style={{ transformOrigin: "center" }}
+              ></span>
+            </Link>
+            <Link
+              to="/blog"
+              className="flex items-center gap-1 text-[#3b5d3b] px-4 py-1.5 font-semibold text-xs sm:text-sm transition relative group"
+            >
+              Blog
+              <span
+                className="absolute left-1/2 -translate-x-1/2 -bottom-0.5 w-0 h-[2px] bg-[#3b5d3b] transition-all duration-300 group-hover:w-[70%]"
+                style={{ transformOrigin: "center" }}
+              ></span>
+            </Link>
+            <Link
+              to="/contact"
+              className="flex items-center gap-1 text-[#3b5d3b] px-4 py-1.5 font-semibold text-xs sm:text-sm transition relative group"
+            >
+              Contact
+              <span
+                className="absolute left-1/2 -translate-x-1/2 -bottom-0.5 w-0 h-[2px] bg-[#3b5d3b] transition-all duration-300 group-hover:w-[70%]"
+                style={{ transformOrigin: "center" }}
+              ></span>
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* Spacing between bars */}
+      {/* <div className="h-3 sm:h-4"></div> */}
+
+
       {/* Top Bar (Dashboard style) */}
       <div className="bg-[#f3f9f4] border border-[#d2e3c8] px-4 py-2 w-[97vw] mx-auto rounded-xl flex flex-col sm:flex-row items-center justify-between gap-2">
         {/* Left: Welcome */}
