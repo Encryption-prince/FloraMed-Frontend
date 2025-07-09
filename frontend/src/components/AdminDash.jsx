@@ -48,24 +48,11 @@ function AdminDash() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [metricsData, setMetricsData] = useState([]); 
-  const navigate = useNavigate(); // <-- Add this line
+  const navigate = useNavigate(); 
 
   const [activeTab, setActiveTab] = useState("Metrics");
 
-  const [herbalists, setHerbalists] = useState([
-    {
-      id: 1,
-      name: "Ravi Sharma",
-      email: "ravi@example.com",
-      documentUrl: "https://example.com/docs/ravi",
-    },
-    {
-      id: 2,
-      name: "Nikita Mehra",
-      email: "nikita@example.com",
-      documentUrl: "https://example.com/docs/nikita",
-    },
-  ]);
+  const [herbalists, setHerbalists] = useState([]);
 
   const [bannedHerbalists, setBannedHerbalists] = useState([]);
   const handleBanHerbalist = (id) => {
@@ -145,7 +132,33 @@ function AdminDash() {
         });
 setMetricsData(metrics);
 
-        console.log("Metrics Data:", data);
+        // console.log("Metrics Data:", data);
+      } catch (error) {
+        return;
+      }
+    };
+
+
+    const fetchHerbalists = async () => {
+      const token = sessionStorage.getItem("token");
+      if (!token) {
+        return;
+      }
+      try {
+        const response = await fetch(
+          "https://quarrelsome-mae-subham-org-14444f5f.koyeb.app/admin/users/all-herbalists",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        if (!response.ok)
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        const data = await response.json();
+        setHerbalists(data);
       } catch (error) {
         return;
       }
@@ -183,6 +196,7 @@ setMetricsData(metrics);
     };
     fetchUserData();
     fetchMetrics();
+    fetchHerbalists();
   }, []);
 
   // Logout function (same as Dashboard.jsx)
@@ -378,10 +392,10 @@ setMetricsData(metrics);
                   {/* Center: Document Link */}
                   <div>
                     <a
-                      href={herbalist.documentUrl}
+                      href={herbalist.identificationDocument}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-700 underline text-sm"
+                      className="text-blue-700 underline text-sm cursor-pointer"
                     >
                       Document
                     </a>
